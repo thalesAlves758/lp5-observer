@@ -20,6 +20,14 @@ public class User implements PropertyChangeListener {
         this.email = email;
     }
 
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
     public void addProductAsFavorite(Product product) {
         product.addObserver(this);
     }
@@ -37,7 +45,7 @@ public class User implements PropertyChangeListener {
 
         if(readjustment < 0) {
             String title = "Mudança de preço";
-            String message = "O produto " + changedProduct.getName() + " obteve um desconto de " + String.format("%.2f", readjustment) + "%.";
+            String message = "O produto " + changedProduct.getName() + " obteve um desconto de " + String.format("%.2f", Math.abs(readjustment)) + "%.";
             this.notifications.add(new Notification(title, message));
         }
     }

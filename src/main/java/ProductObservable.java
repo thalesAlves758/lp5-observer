@@ -17,6 +17,6 @@ public class ProductObservable {
     }
 
     public void notifyObservers(Product oldProduct, Product newProduct) {
-        this.support.firePropertyChange("newPrice", oldProduct, newProduct);
+        this.support.firePropertyChange("price", oldProduct, newProduct);
     }
 }
